@@ -1,0 +1,33 @@
+html { 
+    overflow-y: scroll;
+  }
+  body {
+    background-color: #5E35B1;
+    position: absolute;
+  }
+  
+  .restrictSize {
+    position: relative;
+    top: 10px;
+    bottom: 10px;
+    left: 100%;
+    right: 100%;
+  }
+  
+  .centerText {
+    text-align: center;
+  }
+
+  .streamName {
+    color: #5E35B1;
+  }
+
+  .ellipsis {
+    width: 300px;
+    text-overflow: ellipsis;
+  
+    /* Required for text-overflow to do anything */
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  

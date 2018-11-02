@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <title>Virtual Card Viewer</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="VCard Storage">
+  <meta name="keywords" content="VCard, Storage, Download, Varify, Update">
+  <meta name="author" content="Omer Ashfaq">
+
+  <!--Main StyleSheet is here-->
+  <link rel="stylesheet" href="./style.css">
+  <!--Materialize StyleSheet is here-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+  <!--jQuery is here-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script> 
+</head>
+<body>
+  <div class="restrictSize">
+    <div class="card card_color">
+      <div class="card-content">
+        <img src="./logo.png" style="width:410px;height:300px;">
+      </div>
+      <div class="card-tabs">
+        <ul class="tabs tabs-fixed-width">
+          <li class="tab"><a class="active" href="#fileLog">File Log</a></li>
+          <li class="tab"><a href="#cardView">Card View</a></li>
+          <li class="tab"><a href="#status">Status</a></li>
+        </ul>
+      </div>
+      <div class="card-content grey lighten-4">
+        <!--This is where all the contant will be visible-->
+        <div id="fileLog"></div>
+        <!--This is where only the people that are online will be visible-->
+        <div id="cardView"></div>
+        <!--This is where only the people that are offline will be visible-->
+        <div id="status"></div>
+      </div>
+    </div>
+  </div>
+  <script  src="./index.js"></script>
+</body>
+</html>
