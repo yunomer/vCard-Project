@@ -9,35 +9,68 @@
   <meta name="keywords" content="VCard, Storage, Download, Varify, Update">
   <meta name="author" content="Omer Ashfaq">
 
-  <!--Main StyleSheet is here-->
-  <link rel="stylesheet" href="./style.css">
   <!--Materialize StyleSheet is here-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+
   <!--jQuery is here-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script> 
+
+  <!--Main StyleSheet is here-->
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+  </div>
   <div class="restrictSize">
     <div class="card card_color">
       <div class="card-content">
-        <img src="./logo.png" style="width:410px;height:300px;">
+          <img src="./logo.png" style="width:955px;height:200px;">
+      </div>
+      <!-- https://materializecss.com/chips.html --> 
+      <div class="card_color">
+        <h6>STATUS:</h6>
       </div>
       <div class="card-tabs">
         <ul class="tabs tabs-fixed-width">
           <li class="tab"><a class="active" href="#fileLog">File Log</a></li>
           <li class="tab"><a href="#cardView">Card View</a></li>
-          <li class="tab"><a href="#status">Status</a></li>
         </ul>
       </div>
       <div class="card-content grey lighten-4">
-        <!--This is where all the contant will be visible-->
-        <div id="fileLog"></div>
-        <!--This is where only the people that are online will be visible-->
-        <div id="cardView"></div>
-        <!--This is where only the people that are offline will be visible-->
-        <div id="status"></div>
+        <!-- This is where the file collection components will be placed! Remember to remove the preloader-->
+        <div id="fileLog">
+          <div id="preLoader" class="centerText">
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-default-color">
+                  <div class="circle-clipper left">
+                    <div class="circle"></div>
+                  </div><div class="gap-patch">
+                    <div class="circle"></div>
+                  </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+        <!-- This is where the Card View collection components will be placed! Remember to remove the preloader-->
+        <div id="cardView">
+            <div id="preLoader" class="centerText">
+              <div class="preloader-wrapper big active">
+                  <div class="spinner-layer spinner-default-color">
+                    <div class="circle-clipper left">
+                      <div class="circle"></div>
+                    </div><div class="gap-patch">
+                      <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                      <div class="circle"></div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
       </div>
     </div>
   </div>

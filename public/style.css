@@ -1,33 +1,53 @@
 html { 
     overflow-y: scroll;
   }
-  body {
-    background-color: #5E35B1;
-    position: absolute;
-  }
-  
-  .restrictSize {
-    position: relative;
-    top: 10px;
-    bottom: 10px;
-    left: 100%;
-    right: 100%;
-  }
-  
-  .centerText {
-    text-align: center;
-  }
+body {
+  background-color: #faebd7;
+  position: absolute;
+}
 
-  .streamName {
-    color: #5E35B1;
-  }
+/*Shadow and reference: https://codepen.io/legeoffrey/pen/EaNXew */
+.card {
+  box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.7);
+}
+  
+.restrictSize {
+  position: relative;
+  top: 10px;
+  bottom: 10px;
+  left: 10%;
+  right: 100%;
+  width: 1000px;
+}
+  
+.centerText {
+  text-align: center;
+}
 
-  .ellipsis {
-    width: 300px;
-    text-overflow: ellipsis;
-  
-    /* Required for text-overflow to do anything */
-    white-space: nowrap;
-    overflow: hidden;
-  }
-  
+.ellipsis {
+  width: 300px;
+  text-overflow: ellipsis;
+
+  /* Required for text-overflow to do anything */
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/*Pallet: http://paletton.com/#uid=20I0u0k4vvn0jUv1UH07XqWcmmN */
+.tabs .tab a{
+  color:#4B6375;
+} /*Black color to the text*/
+
+.tabs .tab a:hover {
+  background-color:rgb(255, 255, 255);
+  color:#4B6375;
+} /*Text color on hover*/
+
+.tabs .tab a.active {
+  background-color:rgb(255, 255, 255);
+  color: #4B6375;
+} /*Background and text color when a tab is active*/
+
+.tabs .indicator {
+  background-color:#4B6375;
+} /*Color of underline*/
