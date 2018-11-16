@@ -10,13 +10,28 @@ body {
 .card {
   box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.7);
 }
-  
+
+#status-chip {
+  position: relative;
+  left: 2%;
+  right: 3%;
+}
+
+#status-chip-remove {
+  position: relative;
+  left: 2%;
+  right: 3%;
+}
+
+.file_name {
+  color: rgb(23, 66, 99);
+}
+
 .restrictSize {
   position: relative;
   top: 10px;
   bottom: 10px;
-  left: 10%;
-  right: 100%;
+  left: 17%;
   width: 1000px;
 }
   

@@ -164,4 +164,6 @@ VCardErrorCode propNameChecker (Property * ptr, Tags ** tags);
 
 char* cardToJson (Card* card);
 
+int optionalPropertyLength (char* fileName);
+
 #endif	

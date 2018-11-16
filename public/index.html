@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" >
 <head>
-  <title>Virtual Card Viewer</title>
+  <title>vCard Viewer</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -11,6 +11,9 @@
 
   <!--Materialize StyleSheet is here-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+
+  <!--Materialize icons is here-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <!--jQuery is here-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -28,9 +31,10 @@
       <div class="card-content">
           <img src="./logo.png" style="width:955px;height:200px;">
       </div>
-      <!-- https://materializecss.com/chips.html --> 
-      <div class="card_color">
-        <h6>STATUS:</h6>
+      <div id ="status-chip" class="card_color">
+      </div>
+      <div id="status-chip-remove">
+        <a class="waves-effect waves-light btn"><i class="material-icons left">remove</i>Clear Status</a>
       </div>
       <div class="card-tabs">
         <ul class="tabs tabs-fixed-width">
@@ -57,19 +61,11 @@
         </div>
         <!-- This is where the Card View collection components will be placed! Remember to remove the preloader-->
         <div id="cardView">
-            <div id="preLoader" class="centerText">
-              <div class="preloader-wrapper big active">
-                  <div class="spinner-layer spinner-default-color">
-                    <div class="circle-clipper left">
-                      <div class="circle"></div>
-                    </div><div class="gap-patch">
-                      <div class="circle"></div>
-                    </div><div class="circle-clipper right">
-                      <div class="circle"></div>
-                    </div>
-                  </div>
-                </div>
-            </div>
+          <label>Select Card to View</label>
+          <select id="cardNames" name="dropdown" class="browser-default">
+            <option value="" disabled selected>Choose your option</option>
+          </select>
+          <div id="selectedCard"></div>
         </div>
       </div>
     </div>

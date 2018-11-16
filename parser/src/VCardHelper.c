@@ -13,7 +13,6 @@ char* cEngine (char* fileName) {
     if (fileName == NULL) {
         return NULL;
     }
-
     Card * card = NULL;
     VCardErrorCode errorCode = createCard(fileName, &card);
     if (errorCode != OK) {
@@ -21,7 +20,23 @@ char* cEngine (char* fileName) {
         return code;
     }
     char * cardToJsonString = cardToJson(card);
+    deleteCard(card);
     return cardToJsonString;
+}
+
+int optionalPropertyLength (char* fileName) {
+    if (fileName == NULL) {
+        return 0;
+    }
+    Card * card = NULL;
+    VCardErrorCode errorCode = createCard(fileName, &card);
+    if (errorCode != OK) {
+        return 0;
+    }
+
+    int length = getLength(card->optionalProperties);
+    deleteCard(card);
+    return length;
 }
 
 bool validateFileExtention (char * fileName) {
@@ -1709,8 +1724,8 @@ char* cardToJson (Card* card) {
 
     Property * fn = card->fn;
     List * opProp = card->optionalProperties;
-    DateTime * bday = card->birthday;
-    DateTime * anni = card->anniversary;
+    //DateTime * bday = card->birthday;
+    //DateTime * anni = card->anniversary;
 
     char * returnString = malloc(sizeof(char) * 10);
     strcpy(returnString, "[");
@@ -1734,6 +1749,7 @@ char* cardToJson (Card* card) {
         }
     }
 
+/*
     if (bday != NULL) {
         char * bdayString = dtToJSON(bday);
         returnString = realloc(returnString, strlen(returnString) + strlen(bdayString) + 50);
@@ -1749,7 +1765,7 @@ char* cardToJson (Card* card) {
         strcat(returnString, anniString);
         free(anniString);
     }
-
+*/
     strcat(returnString, "]");
     return returnString;
 }

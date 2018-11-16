@@ -35,6 +35,7 @@ app.get('/index.js',function(req,res){
     const minimizedContents = JavaScriptObfuscator.obfuscate(contents, {compact: true, controlFlowFlattening: true});
     res.contentType('application/javascript');
     res.send(minimizedContents._obfuscatedCode);
+    //res.sendFile(path.join(__dirname+'/public/index.js'));
   });
 });
 
@@ -56,7 +57,6 @@ app.post('/upload', function(req, res) {
     if(err) {
       return res.status(500).send(err);
     }
-
     res.redirect('/');
   });
 });
@@ -73,17 +73,16 @@ app.get('/uploads/:name', function(req , res){
   });
 });
 
-//******************** Your code goes here ******************** 
-
 // C Functions
 let sharedLib = ffi.Library('./sharedLib', {
-  'cEngine': ['string', [ 'string' ]],		//return type first, argument list second
+  'cEngine': ['string', [ 'string' ]],
+  'optionalPropertyLength': ['int', [ 'string' ]],
 });
 
-app.get('/current', function(req, res) {
+app.get('/serverDataDump', function(req, res) {
+  let data = [];
   let fileNames = [];
   let fileMergeData = [];
-  let data = [];
   let returnString = "";
 
   fs.readdirSync('./uploads').forEach(file => {
@@ -92,21 +91,20 @@ app.get('/current', function(req, res) {
 
   fileNames.forEach(file => {
     returnString = sharedLib.cEngine(__dirname+'/uploads/' + file);
-    fileMergeData.push(file);
+    if (returnString.length < 13) {
+      fs.unlink(path.join(__dirname+'/uploads/' + file), (err) => {
+        if (err) throw err;
+      });
+    }
+    data.push(returnString);
   })
 
   //Send the files here!
   res.send({
-    fileNames
+    file_names:fileNames,
+    file_data:data
   })
 })
-
-//Sample endpoint
-app.get('/someendpoint', function(req , res){
-  res.send({
-    foo: "bar"
-  });
-});
 
 app.listen(portNum);
 console.log('Running app at localhost: ' + portNum);
